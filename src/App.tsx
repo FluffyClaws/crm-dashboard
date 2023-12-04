@@ -1,7 +1,14 @@
+// App.tsx or Dashboard.tsx
 import React from "react";
+import Sidebar from "./components/Sidebar";
 
-function App() {
-  return <p>placeholder</p>;
-}
+const App: React.FC = () => {
+  return (
+    <div className="app">
+      <Sidebar />
+      {/* Rest of the dashboard content */}
+    </div>
+  );
+};
 
 export default App;
