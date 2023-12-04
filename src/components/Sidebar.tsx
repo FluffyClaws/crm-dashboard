@@ -1,4 +1,14 @@
 import React from "react";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+  Avatar,
+  Box,
+} from "@mui/material";
+import "./Sidebar.scss";
+
 import DashboardIcon from "../icons/dashboard.svg";
 import CustomerIcon from "../icons/customer.svg";
 import IncomeIcon from "../icons/income.svg";
@@ -10,51 +20,50 @@ import UserIcon from "../icons/user-pic.svg";
 
 const Sidebar: React.FC = () => {
   return (
-    <aside>
-      <div className="sidebar-header">
-        <img src={LogoIcon} alt="Logo" />
-        <h1>Dashboard</h1>
-        <span>v0.1</span>
-      </div>
-      <nav className="sidebar-nav">
-        <ul>
-          <li className="nav-item">
-            <img src={DashboardIcon} alt="Dashboard" />
-            <span className="text">Dashboard</span>
-            <img src={ArrowIcon} alt="Arrow-right" />
-          </li>
-          <li className="nav-item">
-            <img src={CustomerIcon} alt="Customer" />
-            <span className="text">Customers</span>
-            <img src={ArrowIcon} alt="Arrow-right" />
-          </li>
-          <li className="nav-item">
-            <img src={IncomeIcon} alt="Income" />
-            <span className="text">Income</span>
-            <img src={ArrowIcon} alt="Arrow-right" />
-          </li>
-          <li className="nav-item">
-            <img src={PromoteIcon} alt="Promote" />
-            <span className="text">Promote</span>
-            <img src={ArrowIcon} alt="Arrow-right" />
-          </li>
-          <li className="nav-item">
-            <img src={HelpIcon} alt="Help" />
-            <span className="text">Help</span>
-            <img src={ArrowIcon} alt="Arrow-right" />
-          </li>
-        </ul>
-      </nav>
-      <div className="sidebar-footer">
-        <div className="user-profile">
-          <img src={UserIcon} alt="Evano" />{" "}
-          <div className="user-info">
-            <strong>Evano</strong>
-            <small>Project Manager</small>
-          </div>
-        </div>
-      </div>
-    </aside>
+    <Box component="aside" className="sidebar">
+      <Box className="sidebar-header">
+        <img src={LogoIcon} alt="Logo" className="sidebar-logo" />
+        <Typography className="sidebar-title">
+          Dashboard
+          <span className="sidebar-version">v0.1</span>
+        </Typography>
+      </Box>
+      <List component="nav" className="sidebar-nav">
+        <ListItem button className="nav-item">
+          <img src={DashboardIcon} alt="Dashboard" className="icon-dashboard" />
+          <ListItemText primary="Dashboard" />
+        </ListItem>
+        <ListItem button className="nav-item">
+          <img src={CustomerIcon} alt="Customer" className="icon-customer" />
+          <ListItemText primary="Customers" />
+          <img src={ArrowIcon} alt="Arrow-right" className="icon-arrow" />
+        </ListItem>
+        <ListItem button className="nav-item">
+          <img src={IncomeIcon} alt="Income" className="icon-income" />
+          <ListItemText primary="Income" />
+          <img src={ArrowIcon} alt="Arrow-right" className="icon-arrow" />
+        </ListItem>
+        <ListItem button className="nav-item">
+          <img src={PromoteIcon} alt="Promote" className="icon-promote" />
+          <ListItemText primary="Promote" />
+          <img src={ArrowIcon} alt="Arrow-right" className="icon-arrow" />
+        </ListItem>
+        <ListItem button className="nav-item">
+          <img src={HelpIcon} alt="Help" className="icon-help" />
+          <ListItemText primary="Help" />
+          <img src={ArrowIcon} alt="Arrow-right" className="icon-arrow" />
+        </ListItem>
+      </List>
+      <Box className="sidebar-footer">
+        <Avatar src={UserIcon} alt="Evano" className="user-avatar" />
+        <span className=" wrapper">
+          <Typography className="user-name">Evano</Typography>
+          <Typography color="text.secondary" className="user-title">
+            Project Manager
+          </Typography>
+        </span>
+      </Box>
+    </Box>
   );
 };
 
