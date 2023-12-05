@@ -1,22 +1,16 @@
 import React from "react";
-import {
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-  Avatar,
-  Box,
-} from "@mui/material";
+import { Typography, Avatar, Box } from "@mui/material";
+import { Link } from "react-router-dom";
 import "./Sidebar.scss";
 
-import DashboardIcon from "../icons/dashboard.svg";
-import CustomerIcon from "../icons/customer.svg";
-import IncomeIcon from "../icons/income.svg";
-import PromoteIcon from "../icons/promote.svg";
-import HelpIcon from "../icons/help.svg";
-import ArrowIcon from "../icons/arrow-right.svg";
 import LogoIcon from "../icons/logo.svg";
 import UserIcon from "../icons/user-pic.svg";
+import ArrowIcon from "../iconComponents/ArrowIcon";
+import CustomerIcon from "../iconComponents/CustomersIcon";
+import DashboardIcon from "../iconComponents/DashboardIcon";
+import IncomeIcon from "../iconComponents/IncomeIcon";
+import PromoteIcon from "../iconComponents/PromoteIcon";
+import HelpIcon from "../iconComponents/HelpIcon";
 
 const Sidebar: React.FC = () => {
   return (
@@ -28,35 +22,45 @@ const Sidebar: React.FC = () => {
           <span className="sidebar-version">v0.1</span>
         </Typography>
       </Box>
-      <List component="nav" className="sidebar-nav">
-        <ListItem button className="nav-item">
-          <img src={DashboardIcon} alt="Dashboard" className="icon-dashboard" />
-          <ListItemText primary="Dashboard" />
-        </ListItem>
-        <ListItem button className="nav-item">
-          <img src={CustomerIcon} alt="Customer" className="icon-customer" />
-          <ListItemText primary="Customers" />
-          <img src={ArrowIcon} alt="Arrow-right" className="icon-arrow" />
-        </ListItem>
-        <ListItem button className="nav-item">
-          <img src={IncomeIcon} alt="Income" className="icon-income" />
-          <ListItemText primary="Income" />
-          <img src={ArrowIcon} alt="Arrow-right" className="icon-arrow" />
-        </ListItem>
-        <ListItem button className="nav-item">
-          <img src={PromoteIcon} alt="Promote" className="icon-promote" />
-          <ListItemText primary="Promote" />
-          <img src={ArrowIcon} alt="Arrow-right" className="icon-arrow" />
-        </ListItem>
-        <ListItem button className="nav-item">
-          <img src={HelpIcon} alt="Help" className="icon-help" />
-          <ListItemText primary="Help" />
-          <img src={ArrowIcon} alt="Arrow-right" className="icon-arrow" />
-        </ListItem>
-      </List>
+      <Box component="nav" className="sidebar-nav">
+        <Link to="/dashboard" className="nav-item">
+          <span>
+            <DashboardIcon className="icon-dashboard" />
+            Dashboard
+          </span>
+        </Link>
+        <Link to="/customers" className="nav-item">
+          <span>
+            <CustomerIcon className="icon-customer" />
+            Customers
+          </span>
+          <ArrowIcon className="icon-arrow" />
+        </Link>
+        <Link to="/income" className="nav-item">
+          <span>
+            <IncomeIcon className="icon-income" />
+            Income
+          </span>
+          <ArrowIcon className="icon-arrow" />
+        </Link>
+        <Link to="/promote" className="nav-item">
+          <span>
+            <PromoteIcon className="icon-promote" />
+            Promote
+          </span>
+          <ArrowIcon className="icon-arrow" />
+        </Link>
+        <Link to="/help" className="nav-item">
+          <span>
+            <HelpIcon className="icon-help" />
+            Help
+          </span>
+          <ArrowIcon className="icon-arrow" />
+        </Link>
+      </Box>
       <Box className="sidebar-footer">
         <Avatar src={UserIcon} alt="Evano" className="user-avatar" />
-        <span className=" wrapper">
+        <span className="wrapper">
           <Typography className="user-name">Evano</Typography>
           <Typography color="text.secondary" className="user-title">
             Project Manager
