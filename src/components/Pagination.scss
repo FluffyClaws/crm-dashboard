@@ -1,0 +1,47 @@
+.paginationContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  .MuiTablePagination-toolbar {
+    flex-grow: 1;
+    padding: 0;
+    justify-content: space-between;
+    color: #b5b7c0;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.14px;
+    padding: 32px 0 0 16px;
+  }
+  .MuiPagination-root {
+    padding-top: 32px;
+    button {
+      color: #404b52;
+      border-radius: 4px;
+      border: 1px solid #eee;
+      background: #f5f5f5;
+
+      &:hover,
+      &.Mui-selected {
+        color: #fff;
+        border: 1px solid #5932ea;
+        background: #5932ea;
+      }
+    }
+  }
+
+  .MuiTablePagination-caption {
+    flex-shrink: 0;
+    order: -1;
+  }
+  .MuiTablePagination-spacer {
+    display: none;
+  }
+
+  .MuiTablePagination-actions {
+    margin-left: auto;
+  }
+}

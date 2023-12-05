@@ -1,0 +1,181 @@
+html .container {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0px 95px 258px 71px;
+
+  .greetings {
+    margin-top: 41px;
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom: 51px;
+    .icon {
+      padding-left: 10px;
+    }
+  }
+
+  .table-container {
+    height: 812px;
+    padding: 30px 44px 41px 38px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: (0px 10px 60px rgba(226, 236, 249, 0.5));
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .search-customers {
+      margin-top: 14px;
+      margin: 14px 0 49px 0;
+      .MuiOutlinedInput-root {
+        width: 216px;
+        height: 38px;
+        border-radius: 10px;
+        background: #f9fbff;
+
+        input {
+          color: #000;
+          font-family: "Poppins", sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: -0.12px;
+        }
+
+        fieldset {
+          border: none;
+        }
+
+        .MuiOutlinedInput-input {
+          padding-left: 10px;
+        }
+
+        .MuiOutlinedInput-adornedStart {
+          padding-left: 0;
+        }
+      }
+
+      .MuiInputAdornment-positionStart {
+        .MuiIconButton-root {
+          padding: 7px 8px;
+        }
+      }
+    }
+
+    .MuiTable-root {
+      .MuiTableCell-root {
+        border-bottom: 1px #eee;
+      }
+
+      .MuiTableHead-root {
+        .MuiTableCell-root {
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-bottom: 1px solid #eee;
+            width: calc(100% + 104px);
+            margin-left: -60px;
+          }
+        }
+      }
+
+      .MuiTableBody-root {
+        .MuiTableCell-root {
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 0 0 40px 16px;
+        padding-bottom: 40px;
+        :nth-child(1) {
+          padding-bottom: 7px;
+        }
+      }
+      .table-title {
+        color: #000;
+        font-family: "Poppins", sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.22px;
+      }
+      .table-status {
+        color: #16c098;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.14px;
+      }
+    }
+    thead {
+      th {
+        color: #b5b7c0;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .line {
+        width: 100%;
+        height: 1px;
+        color: #eee;
+      }
+    }
+
+    tbody {
+      td {
+        color: #292d32;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    .active,
+    .inactive {
+      display: block;
+      text-align: center;
+      max-width: 80px;
+      height: 29px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.14px;
+    }
+    .active {
+      color: #008767;
+
+      border: 1px solid #00b087;
+      background: rgba(22, 192, 152, 0.38);
+    }
+    .inactive {
+      color: #df0404;
+
+      border: 1px solid #df0404;
+      background: #ffc5c5;
+    }
+  }
+}
