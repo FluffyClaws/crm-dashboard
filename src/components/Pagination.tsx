@@ -1,6 +1,7 @@
 import React from "react";
 import TablePagination from "@mui/material/TablePagination";
 import Pagination from "@mui/material/Pagination";
+import PaginationItem from "@mui/material/PaginationItem";
 import { PaginationProps } from "../types/types";
 import "./Pagination.scss";
 
@@ -17,7 +18,7 @@ const CustomPagination: React.FC<PaginationProps> = ({
   const numberOfPages = Math.ceil(count / rowsPerPage);
 
   return (
-    <div className="paginationContainer">
+    <div className="inner-paginationContainer">
       <TablePagination
         component="div"
         count={count}
@@ -34,6 +35,11 @@ const CustomPagination: React.FC<PaginationProps> = ({
         count={numberOfPages}
         page={page + 1}
         onChange={handleChange}
+        siblingCount={1}
+        boundaryCount={1}
+        renderItem={(item) => {
+          return <PaginationItem {...item} />;
+        }}
       />
     </div>
   );
