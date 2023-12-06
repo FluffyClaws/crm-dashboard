@@ -3,7 +3,7 @@ import TablePagination from "@mui/material/TablePagination";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import { PaginationProps } from "../types/types";
-import "./Pagination.scss";
+import "./CustomPagination.scss";
 
 const CustomPagination: React.FC<PaginationProps> = ({
   count,

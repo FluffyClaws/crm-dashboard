@@ -7,6 +7,13 @@ export type Customer = {
   status: "Active" | "Inactive";
 };
 
+export type SidebarItemType = {
+  to: string;
+  icon: React.ComponentType<{ className?: string }>;
+  text: string;
+  showArrow?: boolean;
+};
+
 export type CustomerListProps = {
   customers: Customer[];
 };
