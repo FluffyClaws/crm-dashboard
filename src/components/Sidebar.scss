@@ -1,16 +1,21 @@
-html body .sidebar {
-  display: flex;
-  flex-direction: column;
+@import "../style/variables";
+@import "../style/mixins";
+.sidebar {
+  @include flex-column; // Using flex-column mixin
   width: 306px;
   height: 100vh;
-  padding: 37px 28px 0 28px;
-  font-family: "Poppins", sans-serif;
-  background-color: #ffffff;
-  box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.5);
+  padding: 37px 28px 0;
+  background-color: $color-white;
+  @include box-shadow(
+    0px 10px 60px rgba(226, 236, 249, 0.5)
+  ); // Using box-shadow mixin
+
+  p {
+    font-family: $font-family-main;
+  }
 
   &-header {
     display: flex;
-    flex-direction: row;
     height: 39px;
 
     .sidebar-logo {
@@ -19,67 +24,50 @@ html body .sidebar {
     }
 
     .sidebar-title {
-      font-family: "Poppins", sans-serif;
       padding-left: 8px;
-      font-size: 26px;
-      line-height: normal;
-      font-weight: 600;
-      color: #000000;
-      letter-spacing: 0.26px;
+      @include font-settings(26px, 600, 0.26px); // Using font-settings mixin
+      color: $color-black;
     }
 
     .sidebar-version {
       padding: 18px 0 0 4px;
       width: 18px;
       height: 15px;
-
-      color: #838383;
-      font-family: "Poppins", sans-serif;
-      font-size: 10px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-      letter-spacing: -0.1px;
+      color: $color-grey; // Variable for color
+      @include font-settings(10px, 500, -0.1px); // Using font-settings mixin
     }
   }
 
   .sidebar-nav {
     margin-top: 65px;
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    @include flex-column; // Using flex-column mixin
     gap: 30px;
+
     .nav-item {
       width: 250px;
       height: 46px;
-      display: flex;
-
-      align-items: center;
+      @include flex-center; // Adjusted to use flex-center mixin
       justify-content: space-between;
       transition: background-color 0.3s;
       text-decoration: none;
-      color: #9197b3;
-      font-family: "Poppins", sans-serif;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-      letter-spacing: -0.14px;
+      color: $color-text-light; // Variable for color
+      @include font-settings(14px); // Using font-settings mixin
 
       span {
-        display: flex;
-        align-items: center;
+        @include flex-center; // Adjusted to use flex-center mixin
         padding: 11px 0 11px 11px;
         gap: 14px;
       }
+
       &:hover {
-        color: #ffffff;
+        color: $color-white;
         border-radius: 8px;
-        background: #5932ea;
+        background: $color-primary; // Variable for color
       }
 
       .list-icon {
-        padding: 0px;
+        padding: 0;
       }
 
       .icon-dashboard,
@@ -87,7 +75,8 @@ html body .sidebar {
       .icon-customer,
       .icon-income,
       .icon-promote,
-      .icon-help {
+      .icon-help,
+      .icon-arrow {
         width: 24px;
         height: 24px;
       }
@@ -101,36 +90,30 @@ html body .sidebar {
 
   .sidebar-footer {
     display: flex;
-    flex-direction: row;
     padding-left: 5px;
     padding-bottom: 76px;
+
     .user-avatar {
       width: 42px;
       height: 42px;
     }
+
     .wrapper {
-      display: flex;
-      flex-direction: column;
+      @include flex-column; // Using flex-column mixin
     }
-    .user-name {
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 500;
-      letter-spacing: 0.14px;
-    }
+
     .user-name,
     .user-title {
-      font-family: "Poppins", sans-serif;
       padding-left: 12px;
     }
 
+    .user-name {
+      @include font-settings(14px, 500, 0.14px); // Using font-settings mixin
+    }
+
     .user-title {
-      color: #757575;
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: 0.12px;
+      color: $color-grey;
+      @include font-settings(12px, 400, 0.12px); // Using font-settings mixin
     }
   }
 }

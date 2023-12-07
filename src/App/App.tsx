@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import CustomerList from "./components/CustomerList";
-import { customers } from "./data/customerData";
+import Sidebar from "../components/Sidebar";
+import CustomerList from "../components/CustomerList";
+import { customers } from "../data/customerData";
 import "./App.scss";
 
 const App: React.FC = () => {

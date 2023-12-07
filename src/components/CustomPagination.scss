@@ -1,55 +1,48 @@
+@import "../style/variables";
+@import "../style/mixins";
+
 .inner-paginationContainer {
-  display: flex;
+  @include flex-center; // Using flex-center mixin
   width: 100%;
   justify-content: space-between;
-  align-items: center;
+
   .MuiTablePagination-toolbar {
     flex-grow: 1;
-    padding: 0;
-    justify-content: space-between;
-    color: #b5b7c0;
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: -0.14px;
     padding: 32px 0 0 16px;
+    color: $color-secondary;
+    @include font-settings(14px); // Using font-settings mixin
   }
+
   .MuiPagination-root {
     padding-top: 32px;
+
     .MuiPaginationItem-root {
       margin: 0 6px;
       width: 24px;
       height: 24px;
       min-width: 24px;
-      min-height: 0;
     }
+
     button {
-      color: #404b52;
+      color: $color-text;
       border-radius: 4px;
-      border: 1px solid #eee;
-      background: #f5f5f5;
+      border: 1px solid $color-border;
+      background: $color-background-light;
 
       &:hover,
       &.Mui-selected {
-        color: #fff;
-        border: 1px solid #5932ea;
-        background: #5932ea;
+        color: $color-white;
+        border: 1px solid $color-primary;
+        background: $color-primary;
       }
     }
+
     .MuiPaginationItem-ellipsis {
-      font-family: "Poppins", sans-serif;
+      @include font-settings(12px, 500, -0.12px); // Using font-settings mixin
       width: 9px;
       margin: 0 6px;
-
       height: 12px;
-      color: #000;
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 100%;
-      letter-spacing: -0.12px;
+      color: $color-black;
     }
   }
 
@@ -57,6 +50,7 @@
     flex-shrink: 0;
     order: -1;
   }
+
   .MuiTablePagination-spacer {
     display: none;
   }
