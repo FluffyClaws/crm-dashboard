@@ -1,5 +1,5 @@
-import React from "react";
-import { Typography, Avatar, Box } from "@mui/material";
+import React, { useState } from "react";
+import { Typography, Avatar, Box, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./Sidebar.scss";
 
@@ -13,6 +13,7 @@ import IncomeIcon from "../iconComponents/IncomeIcon";
 import PromoteIcon from "../iconComponents/PromoteIcon";
 import HelpIcon from "../iconComponents/HelpIcon";
 import { SidebarItemType } from "../types/types";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const sidebarItems: SidebarItemType[] = [
   {
@@ -56,22 +57,45 @@ const SidebarFooter: React.FC = () => (
 );
 
 const Sidebar: React.FC = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
   return (
-    <Box component="aside" className="sidebar">
-      <Box className="sidebar-header">
-        <img src={LogoIcon} alt="Logo" className="sidebar-logo" />
-        <Typography className="sidebar-title">
-          Dashboard
-          <span className="sidebar-version">v0.1</span>
-        </Typography>
+    <>
+      {!isSidebarOpen && (
+        <IconButton
+          className="sidebar-logo-button"
+          onClick={toggleSidebar}
+          aria-label="open sidebar"
+        >
+          <img src={LogoIcon} alt="Logo" />
+        </IconButton>
+      )}
+      <Box
+        component="aside"
+        className={`sidebar ${isSidebarOpen ? "open" : ""}`}
+      >
+        <Box className="sidebar-header" onClick={toggleSidebar}>
+          {isSidebarOpen ? (
+            <MenuIcon />
+          ) : (
+            <img src={LogoIcon} alt="Logo" className="sidebar-logo" />
+          )}
+          <Typography className="sidebar-title">
+            Dashboard
+            <span className="sidebar-version">v0.1</span>
+          </Typography>
+        </Box>
+        <Box component="nav" className="sidebar-nav">
+          {sidebarItems.map((item) => (
+            <SidebarItem key={item.to} {...item} />
+          ))}
+        </Box>
+        <SidebarFooter />
       </Box>
-      <Box component="nav" className="sidebar-nav">
-        {sidebarItems.map((item) => (
-          <SidebarItem key={item.to} {...item} />
-        ))}
-      </Box>
-      <SidebarFooter />
-    </Box>
+    </>
   );
 };
 
