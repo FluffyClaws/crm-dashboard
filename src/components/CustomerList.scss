@@ -2,13 +2,13 @@
 @import "../style/mixins";
 
 .container {
-  @include flex-column; // Using flex-column mixin
+  @include flex-column;
   margin: 0 95px 258px 71px;
 
   .greetings {
     margin-top: 41px;
     color: $color-black;
-    @include font-settings(24px, 500); // Using font-settings mixin
+    @include font-settings(24px, 500);
     padding-bottom: 51px;
 
     .icon {
@@ -22,9 +22,7 @@
     background-color: $color-white;
     border-radius: 20px;
     position: relative;
-    @include box-shadow(
-      0px 10px 60px rgba(226, 236, 249, 0.5)
-    ); // Using box-shadow mixin
+    @include box-shadow(0px 10px 60px rgba(226, 236, 249, 0.5));
     overflow-x: hidden;
     overflow-y: auto;
 
@@ -46,11 +44,7 @@
 
         input {
           color: $color-black;
-          @include font-settings(
-            12px,
-            400,
-            -0.12px
-          ); // Using font-settings mixin
+          @include font-settings(12px, 400, -0.12px);
         }
 
         fieldset {
@@ -102,10 +96,10 @@
     }
 
     .table-header {
-      @include flex-center; // Using flex-center mixin
+      @include flex-center;
       justify-content: space-between;
       .wrapper {
-        @include flex-column; // Using flex-column mixin
+        @include flex-column;
         padding: 0 0 40px 16px;
         padding-bottom: 40px;
         :nth-child(1) {
@@ -114,18 +108,18 @@
       }
       .table-title {
         color: $color-black;
-        @include font-settings(22px, 600, -0.22px); // Using font-settings mixin
+        @include font-settings(22px, 600, -0.22px);
       }
       .table-status {
-        color: #16c098; // Specific color, consider adding to variables if reused
-        @include font-settings(14px, 400, -0.14px); // Using font-settings mixin
+        color: #16c098;
+        @include font-settings(14px, 400, -0.14px);
       }
     }
 
     thead {
       th {
         color: $color-secondary;
-        @include font-settings(14px, 500); // Using font-settings mixin
+        @include font-settings(14px, 500);
       }
       .line {
         width: 100%;
@@ -136,8 +130,8 @@
 
     tbody {
       td {
-        color: #292d32; // Specific color, consider adding to variables if reused
-        @include font-settings(14px); // Using font-settings mixin
+        color: #292d32;
+        @include font-settings(14px);
       }
     }
 
@@ -149,17 +143,68 @@
       height: 29px;
       padding: 4px 12px;
       border-radius: 4px;
-      @include font-settings(14px); // Using font-settings mixin
+      @include font-settings(14px);
     }
     .active {
       color: $color-active;
-      border: 1px solid rgba($color-active, 0.7); // Adjusted for transparency
+      border: 1px solid rgba($color-active, 0.7);
       background: rgba($color-active, 0.38);
     }
     .inactive {
       color: $color-inactive;
       border: 1px solid $color-inactive;
-      background: #ffc5c5; // Specific color, consider adding to variables if reused
+      background: #ffc5c5;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .container {
+    margin: 0;
+
+    .greetings {
+      font-size: 18px;
+      padding-bottom: 20px;
+
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .table-container {
+      padding: 15px;
+      height: auto;
+      overflow-x: scroll;
+
+      .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .wrapper {
+          padding-bottom: 20px;
+        }
+
+        .search-customers {
+          .MuiOutlinedInput-root {
+            width: 100%;
+          }
+        }
+      }
+
+      .MuiTable-root {
+        .MuiTableHead-root,
+        .MuiTableBody-root {
+          .MuiTableCell-root {
+            padding: 8px;
+            font-size: 12px;
+          }
+        }
+      }
+
+      .pagination-container {
+        padding: 10px;
+      }
     }
   }
 }

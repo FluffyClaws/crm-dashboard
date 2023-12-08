@@ -1,0 +1,47 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+.sidebar .sidebar-nav {
+  .nav-item {
+    width: 250px;
+    height: 46px;
+    @include flex-center;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    color: $color-text-light;
+    @include font-settings(14px);
+
+    span {
+      @include flex-center;
+      padding: 11px 0 11px 11px;
+      gap: 14px;
+    }
+
+    &:hover {
+      color: $color-white;
+      border-radius: 8px;
+      background: $color-primary;
+    }
+
+    .list-icon {
+      padding: 0;
+    }
+
+    .icon-dashboard,
+    .icon-product,
+    .icon-customer,
+    .icon-income,
+    .icon-promote,
+    .icon-help,
+    .icon-arrow {
+      width: 24px;
+      height: 24px;
+    }
+
+    .icon-arrow {
+      width: 16px;
+      margin-right: 8px;
+    }
+  }
+}

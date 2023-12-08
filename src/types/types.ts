@@ -14,9 +14,16 @@ export type SidebarItemType = {
   showArrow?: boolean;
 };
 
+export type SidebarHeaderProps = {
+  isSidebarOpen: boolean;
+  isMobile: boolean;
+  toggleSidebar: () => void;
+};
+
 export type CustomerListProps = {
   customers: Customer[];
 };
+
 export interface PaginationProps {
   count: number;
   page: number;

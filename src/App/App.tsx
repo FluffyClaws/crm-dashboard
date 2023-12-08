@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 import CustomerList from "../components/CustomerList";
 import { customers } from "../data/customerData";
 import "./App.scss";
