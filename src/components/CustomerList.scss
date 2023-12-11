@@ -2,13 +2,13 @@
 @import "../style/mixins";
 
 .container {
-  @include flex-column; // Using flex-column mixin
+  @include flex-column;
   margin: 0 95px 258px 71px;
 
   .greetings {
-    margin-top: 41px;
+    margin-top: 40px;
     color: $color-black;
-    @include font-settings(24px, 500); // Using font-settings mixin
+    @include font-settings(24px);
     padding-bottom: 51px;
 
     .icon {
@@ -22,9 +22,7 @@
     background-color: $color-white;
     border-radius: 20px;
     position: relative;
-    @include box-shadow(
-      0px 10px 60px rgba(226, 236, 249, 0.5)
-    ); // Using box-shadow mixin
+    @include box-shadow(0px 10px 60px rgba(226, 236, 249, 0.5));
     overflow-x: hidden;
     overflow-y: auto;
 
@@ -46,11 +44,7 @@
 
         input {
           color: $color-black;
-          @include font-settings(
-            12px,
-            400,
-            -0.12px
-          ); // Using font-settings mixin
+          @include font-settings(12px, 400, -0.12px);
         }
 
         fieldset {
@@ -102,42 +96,41 @@
     }
 
     .table-header {
-      @include flex-center; // Using flex-center mixin
+      @include flex-center;
       justify-content: space-between;
       .wrapper {
-        @include flex-column; // Using flex-column mixin
+        @include flex-column;
         padding: 0 0 40px 16px;
-        padding-bottom: 40px;
         :nth-child(1) {
           padding-bottom: 7px;
         }
       }
       .table-title {
         color: $color-black;
-        @include font-settings(22px, 600, -0.22px); // Using font-settings mixin
+        @include font-settings(22px, 600, -0.22px);
       }
       .table-status {
-        color: #16c098; // Specific color, consider adding to variables if reused
-        @include font-settings(14px, 400, -0.14px); // Using font-settings mixin
+        color: $color-active;
+        @include font-settings(14px);
       }
     }
 
     thead {
       th {
         color: $color-secondary;
-        @include font-settings(14px, 500); // Using font-settings mixin
+        @include font-settings(14px);
       }
       .line {
         width: 100%;
         height: 1px;
-        color: $color-border;
+        background-color: $color-border;
       }
     }
 
     tbody {
       td {
-        color: #292d32; // Specific color, consider adding to variables if reused
-        @include font-settings(14px); // Using font-settings mixin
+        color: $color-grey;
+        @include font-settings(14px);
       }
     }
 
@@ -149,17 +142,107 @@
       height: 29px;
       padding: 4px 12px;
       border-radius: 4px;
-      @include font-settings(14px); // Using font-settings mixin
+      @include font-settings(14px);
     }
     .active {
       color: $color-active;
-      border: 1px solid rgba($color-active, 0.7); // Adjusted for transparency
+      border: 1px solid rgba($color-active, 0.7);
       background: rgba($color-active, 0.38);
     }
     .inactive {
       color: $color-inactive;
       border: 1px solid $color-inactive;
-      background: #ffc5c5; // Specific color, consider adding to variables if reused
+      background: #ffc5c5;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .container {
+    margin: 50px 10px;
+
+    .greetings {
+      @include font-settings(16px);
+      padding-bottom: 15px;
+
+      .icon {
+        width: 25px;
+      }
+    }
+
+    .table-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 812px;
+      padding: 10px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-height: calc(100vh - 135px);
+
+      .pagination-container {
+        margin-top: auto;
+        position: sticky;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background: $color-white;
+        z-index: 10;
+        padding: 25px 0;
+      }
+
+      .search-customers {
+        margin: 10px 0;
+
+        .MuiOutlinedInput-root {
+          height: 30px;
+          border-radius: 5px;
+
+          input {
+            @include font-settings(12px);
+          }
+        }
+      }
+
+      .MuiTable-root {
+        min-width: 600px;
+        width: 100%;
+        overflow-y: auto;
+
+        .MuiTableCell-root {
+          height: 60px;
+          padding: 15px;
+          font-size: 9px;
+        }
+      }
+
+      .table-header {
+        position: sticky;
+        left: 0;
+        background: $color-white;
+        z-index: 10;
+        padding: 5px;
+
+        .wrapper {
+          align-items: center;
+          gap: 10px;
+          padding: 0;
+
+          :nth-child(1) {
+            padding-bottom: 0;
+          }
+        }
+
+        .table-title,
+        .table-status {
+          font-size: 12px;
+        }
+      }
+
+      .active,
+      .inactive {
+        font-size: 10px;
+      }
     }
   }
 }

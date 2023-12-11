@@ -1,0 +1,78 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+.sidebar-logo-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+  display: none;
+
+  @media (max-width: $breakpoint-mobile) {
+    display: block;
+  }
+}
+
+.sidebar {
+  @include flex-column;
+  width: 306px;
+  height: 100vh;
+  padding: 37px 28px 0;
+  background-color: $color-white;
+  @include box-shadow(0px 10px 60px rgba(226, 236, 249, 0.5));
+
+  p {
+    font-family: $font-family-main;
+  }
+
+  .sidebar-nav {
+    margin-top: 65px;
+    flex-grow: 1;
+    @include flex-column;
+    gap: 30px;
+  }
+}
+@media (max-width: $breakpoint-mobile) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 20px;
+    transition: transform 0.3s ease-out, visibility 0.3s ease-out,
+      opacity 0.3s ease-out;
+    visibility: visible;
+    opacity: 1;
+    &.open {
+      @media (max-width: $breakpoint-mobile) {
+        height: 100vh;
+      }
+    }
+
+    &.closed {
+      @media (max-width: $breakpoint-mobile) {
+        height: 75px;
+      }
+    }
+    .sidebar-nav {
+      margin-top: 30px;
+    }
+  }
+
+  .sidebar-nav.closed,
+  .sidebar-footer.closed {
+    transform: translateX(-100%);
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .sidebar-nav.open,
+  .sidebar-footer.open {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    z-index: 1000;
+  }
+}

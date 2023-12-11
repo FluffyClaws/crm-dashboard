@@ -1,0 +1,42 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  height: 39px;
+
+  .sidebar-logo,
+  .MuiSvgIcon-root {
+    display: block;
+    width: 37px;
+    height: 37px;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  .sidebar-title {
+    padding-left: 8px;
+    @include font-settings(26px, 600, 0.26px);
+    color: $color-black;
+  }
+
+  .sidebar-version {
+    padding: 18px 0 0 4px;
+    width: 18px;
+    height: 15px;
+    color: $color-grey;
+    @include font-settings(10px, 500, -0.1px);
+  }
+}
+@media (max-width: $breakpoint-mobile) {
+  .sidebar-header {
+    width: 100%;
+    background-color: inherit;
+  }
+  .menu-icon {
+    display: block;
+  }
+}

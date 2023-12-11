@@ -2,15 +2,15 @@
 @import "../style/mixins";
 
 .inner-paginationContainer {
-  @include flex-center; // Using flex-center mixin
+  @include flex-center;
   width: 100%;
   justify-content: space-between;
 
   .MuiTablePagination-toolbar {
     flex-grow: 1;
-    padding: 32px 0 0 16px;
+    padding-top: 32px;
     color: $color-secondary;
-    @include font-settings(14px); // Using font-settings mixin
+    @include font-settings(14px);
   }
 
   .MuiPagination-root {
@@ -38,7 +38,7 @@
     }
 
     .MuiPaginationItem-ellipsis {
-      @include font-settings(12px, 500, -0.12px); // Using font-settings mixin
+      @include font-settings(12px, 500, -0.12px);
       width: 9px;
       margin: 0 6px;
       height: 12px;
@@ -57,5 +57,43 @@
 
   .MuiTablePagination-actions {
     margin-left: auto;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    flex-direction: column;
+    align-items: center;
+
+    .MuiTablePagination-toolbar {
+      padding: 0;
+      @include font-settings(12px);
+    }
+
+    .MuiPagination-root {
+      padding: 16px 0;
+
+      .MuiPaginationItem-root {
+        margin: 0 3px;
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+      }
+
+      .MuiPaginationItem-ellipsis {
+        @include font-settings(10px, 500);
+        width: 7px;
+        height: 10px;
+      }
+    }
+
+    .MuiTablePagination-caption {
+      order: 0;
+      padding-top: 10px;
+      text-align: center;
+    }
+
+    .MuiTablePagination-actions {
+      margin-top: 10px;
+      margin-left: 0;
+    }
   }
 }
