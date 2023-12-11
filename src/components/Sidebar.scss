@@ -1,0 +1,132 @@
+html body .sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 306px;
+  height: 1198px;
+  margin: 28px 0 0 37px;
+  font-family: "Poppins", sans-serif;
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    height: 39px;
+
+    .sidebar-logo {
+      width: 37px;
+      height: 37px;
+    }
+
+    .sidebar-title {
+      font-family: "Poppins", sans-serif;
+      padding-left: 8px;
+      font-size: 26px;
+      line-height: normal;
+      font-weight: 600;
+      color: #000000;
+      letter-spacing: 0.26px;
+    }
+
+    .sidebar-version {
+      padding: 18px 0 0 4px;
+      width: 18px;
+      height: 15px;
+
+      color: #838383;
+      font-family: "Poppins", sans-serif;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.1px;
+    }
+  }
+
+  .sidebar-nav {
+    margin-top: 65px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .nav-item {
+      width: 250px;
+      height: 46px;
+      padding: 0px;
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      color: #9197b3;
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.14px;
+
+      span {
+        display: flex;
+        align-items: center;
+      }
+      &:hover {
+        color: #ffffff;
+        border-radius: 8px;
+        background: #5932ea;
+      }
+
+      .list-icon {
+        padding: 0px;
+      }
+
+      .icon-dashboard,
+      .icon-customer,
+      .icon-income,
+      .icon-promote,
+      .icon-help {
+        width: 24px;
+        height: 24px;
+        padding: 0 14px 0 11px;
+      }
+
+      .icon-arrow {
+        width: 16px;
+        padding-right: 8px;
+      }
+    }
+  }
+
+  .sidebar-footer {
+    display: flex;
+    flex-direction: row;
+    padding-left: 5px;
+    .user-avatar {
+      width: 42px;
+      height: 42px;
+    }
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    .user-name {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: 0.14px;
+    }
+    .user-name,
+    .user-title {
+      font-family: "Poppins", sans-serif;
+      padding-left: 12px;
+    }
+
+    .user-title {
+      color: #757575;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.12px;
+    }
+  }
+}
