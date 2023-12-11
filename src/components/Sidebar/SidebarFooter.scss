@@ -29,3 +29,8 @@
     @include font-settings(12px, 400, 0.12px);
   }
 }
+@media (max-width: $breakpoint-mobile) {
+  .sidebar-footer {
+    padding-bottom: 0px;
+  }
+}

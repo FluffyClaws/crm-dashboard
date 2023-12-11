@@ -6,9 +6,9 @@
   margin: 0 95px 258px 71px;
 
   .greetings {
-    margin-top: 41px;
+    margin-top: 40px;
     color: $color-black;
-    @include font-settings(24px, 500);
+    @include font-settings(24px);
     padding-bottom: 51px;
 
     .icon {
@@ -101,7 +101,6 @@
       .wrapper {
         @include flex-column;
         padding: 0 0 40px 16px;
-        padding-bottom: 40px;
         :nth-child(1) {
           padding-bottom: 7px;
         }
@@ -111,26 +110,26 @@
         @include font-settings(22px, 600, -0.22px);
       }
       .table-status {
-        color: #16c098;
-        @include font-settings(14px, 400, -0.14px);
+        color: $color-active;
+        @include font-settings(14px);
       }
     }
 
     thead {
       th {
         color: $color-secondary;
-        @include font-settings(14px, 500);
+        @include font-settings(14px);
       }
       .line {
         width: 100%;
         height: 1px;
-        color: $color-border;
+        background-color: $color-border;
       }
     }
 
     tbody {
       td {
-        color: #292d32;
+        color: $color-grey;
         @include font-settings(14px);
       }
     }
@@ -160,50 +159,89 @@
 
 @media (max-width: $breakpoint-mobile) {
   .container {
-    margin: 0;
+    margin: 50px 10px;
 
     .greetings {
-      font-size: 18px;
-      padding-bottom: 20px;
+      @include font-settings(16px);
+      padding-bottom: 15px;
 
       .icon {
-        width: 20px;
-        height: 20px;
+        width: 25px;
       }
     }
 
     .table-container {
-      padding: 15px;
-      height: auto;
-      overflow-x: scroll;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 812px;
+      padding: 10px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-height: calc(100vh - 135px);
 
-      .table-header {
-        flex-direction: column;
-        align-items: flex-start;
+      .pagination-container {
+        margin-top: auto;
+        position: sticky;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background: $color-white;
+        z-index: 10;
+        padding: 25px 0;
+      }
 
-        .wrapper {
-          padding-bottom: 20px;
-        }
+      .search-customers {
+        margin: 10px 0;
 
-        .search-customers {
-          .MuiOutlinedInput-root {
-            width: 100%;
+        .MuiOutlinedInput-root {
+          height: 30px;
+          border-radius: 5px;
+
+          input {
+            @include font-settings(12px);
           }
         }
       }
 
       .MuiTable-root {
-        .MuiTableHead-root,
-        .MuiTableBody-root {
-          .MuiTableCell-root {
-            padding: 8px;
-            font-size: 12px;
-          }
+        min-width: 600px;
+        width: 100%;
+        overflow-y: auto;
+
+        .MuiTableCell-root {
+          height: 60px;
+          padding: 15px;
+          font-size: 9px;
         }
       }
 
-      .pagination-container {
-        padding: 10px;
+      .table-header {
+        position: sticky;
+        left: 0;
+        background: $color-white;
+        z-index: 10;
+        padding: 5px;
+
+        .wrapper {
+          align-items: center;
+          gap: 10px;
+          padding: 0;
+
+          :nth-child(1) {
+            padding-bottom: 0;
+          }
+        }
+
+        .table-title,
+        .table-status {
+          font-size: 12px;
+        }
+      }
+
+      .active,
+      .inactive {
+        font-size: 10px;
       }
     }
   }

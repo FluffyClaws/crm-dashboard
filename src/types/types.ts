@@ -28,4 +28,5 @@ export interface PaginationProps {
   count: number;
   page: number;
   onPageChange: (event: unknown, newPage: number) => void;
+  rowsPerPage: number;
 }

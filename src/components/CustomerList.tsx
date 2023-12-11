@@ -63,7 +63,7 @@ const CustomerList: React.FC<CustomerListProps> = ({ customers }) => {
     <Container className="container">
       <Box className="greetings">
         Hello Evano
-        <img src={GreetingsIcon} alt="greetings" className="icon" />
+        <img src={GreetingsIcon} alt="greetings" className="icon" />,
       </Box>
 
       <TableContainer className="table-container">
@@ -115,6 +115,7 @@ const CustomerList: React.FC<CustomerListProps> = ({ customers }) => {
             count={filteredItems.length}
             page={page}
             onPageChange={handleChangePage}
+            rowsPerPage={rowsPerPage}
           />
         </div>
       </TableContainer>

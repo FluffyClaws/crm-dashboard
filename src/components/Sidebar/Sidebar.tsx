@@ -27,23 +27,22 @@ const Sidebar: React.FC = () => {
   return (
     <Box
       component="aside"
-      className={`sidebar ${isSidebarOpen || isMobile ? "open" : ""}`}
+      className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}
     >
       <SidebarHeader
         isSidebarOpen={isSidebarOpen}
         isMobile={isMobile}
         toggleSidebar={toggleSidebar}
       />
-      {isSidebarOpen || !isMobile ? (
-        <>
-          <Box component="nav" className="sidebar-nav">
-            {sidebarItems.map((item) => (
-              <SidebarItem key={item.to} {...item} />
-            ))}
-          </Box>
-          <SidebarFooter />
-        </>
-      ) : null}
+      <Box
+        component="nav"
+        className={`sidebar-nav ${isSidebarOpen ? "open" : "closed"}`}
+      >
+        {sidebarItems.map((item) => (
+          <SidebarItem key={item.to} {...item} />
+        ))}
+      </Box>
+      {(!isMobile || isSidebarOpen) && <SidebarFooter />}
     </Box>
   );
 };
